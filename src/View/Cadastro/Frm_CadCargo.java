@@ -2,6 +2,11 @@
 package View.Cadastro;
 
 
+import Controller.CargoDAO;
+import Model.Cargo;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 public class Frm_CadCargo extends javax.swing.JFrame {
 
     
@@ -25,6 +30,12 @@ public class Frm_CadCargo extends javax.swing.JFrame {
 
         jLabel1.setText("Descrição:");
 
+        txt_descricaoCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_descricaoCargoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -47,8 +58,18 @@ public class Frm_CadCargo extends javax.swing.JFrame {
         );
 
         btn_salvarCargo.setText("Salvar");
+        btn_salvarCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarCargoActionPerformed(evt);
+            }
+        });
 
         btn_cancelarCargo.setText("Cancelar");
+        btn_cancelarCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarCargoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +112,18 @@ public class Frm_CadCargo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_cancelarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarCargoActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_cancelarCargoActionPerformed
+
+    private void txt_descricaoCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descricaoCargoActionPerformed
+      
+    }//GEN-LAST:event_txt_descricaoCargoActionPerformed
+
+    private void btn_salvarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCargoActionPerformed
+        validaCampo(txt_descricaoCargo);
+    }//GEN-LAST:event_btn_salvarCargoActionPerformed
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -132,4 +165,30 @@ public class Frm_CadCargo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txt_descricaoCargo;
     // End of variables declaration//GEN-END:variables
+
+    private void validaCampo(JTextField txt_descricaoCargo) {
+        if(txt_descricaoCargo.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Descrição Inválida");
+            txt_descricaoCargo.requestFocus();
+
+        }else{
+                            try {
+                                salvar(txt_descricaoCargo);
+                } catch (Exception e) {
+                    
+                }
+        }
+    }
+private void salvar(JTextField descricao) {
+        try {
+            Cargo cargo = new Cargo();
+            cargo.setDescricao(descricao.getText());
+            CargoDAO cargoDAO = new CargoDAO();
+            cargoDAO.salvar(cargo);
+            JOptionPane.showMessageDialog(null,"Salvo com sucesso");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+            
+}
 }

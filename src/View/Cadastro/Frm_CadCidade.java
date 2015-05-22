@@ -154,9 +154,9 @@ public class Frm_CadCidade extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cidadeCidade;
     // End of variables declaration//GEN-END:variables
 
-    private void validaCampo(JTextField txt_cidadeCidade) {
+    private void validaCampo(JTextField cidadeCidade) {
       if (txt_cidadeCidade.getText().trim().isEmpty()){
           JOptionPane.showMessageDialog(null,"Cidade Inválida");
-      }
+      }    
     }
 }
