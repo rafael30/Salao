@@ -1,15 +1,13 @@
 
 package Controller;
-
-import Model.Usuario;
+import Model.Cidade;
 import Util.Manager;
 
-
-public class UsuarioDAO extends Manager{
+public class CidadeDAO extends Manager {
     
-    public void salvar(Usuario usuario){
+    public void salvar(Cidade cidade){
         em.getTransaction().begin();
-        em.merge(usuario);
+        em.merge(cidade);
         em.getTransaction().commit();
     }
 }

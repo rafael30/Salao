@@ -5,6 +5,9 @@
  */
 package View.Cadastro;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Tadeu
@@ -46,8 +49,18 @@ public class Frm_CadCidade extends javax.swing.JFrame {
         });
 
         btn_salvarCidade.setText("Salvar");
+        btn_salvarCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarCidadeActionPerformed(evt);
+            }
+        });
 
         btn_cancelarCidade.setText("Cancelar");
+        btn_cancelarCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarCidadeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,6 +117,14 @@ public class Frm_CadCidade extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cidadeCidadeActionPerformed
 
+    private void btn_cancelarCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarCidadeActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_cancelarCidadeActionPerformed
+
+    private void btn_salvarCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCidadeActionPerformed
+      validaCampo(txt_cidadeCidade);
+    }//GEN-LAST:event_btn_salvarCidadeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,4 +167,10 @@ public class Frm_CadCidade extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_cidadeCidade;
     // End of variables declaration//GEN-END:variables
+
+    private void validaCampo(JTextField txt_cidadeCidade) {
+      if (txt_cidadeCidade.getText().trim().isEmpty()){
+          JOptionPane.showMessageDialog(null,"Cidade Inválida");
+      }
+    }
 }
