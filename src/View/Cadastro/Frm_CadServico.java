@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View.Cadastro;
 
 import Controller.ServicoDAO;
@@ -12,15 +8,10 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Tadeu
- */
+
 public class Frm_CadServico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frm_CadServico
-     */
+  
     public Frm_CadServico() {
         initComponents();
     }

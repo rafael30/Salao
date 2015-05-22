@@ -26,10 +26,7 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Tadeu
- */
+
 @Entity
 @Table(name = "agendamento")
 @XmlRootElement
